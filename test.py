@@ -207,6 +207,12 @@ try:
     time.sleep(2)
     
     work_button_selectors = [
+        # 英文按鈕
+        (By.XPATH, "//button[contains(text(), 'on duty')]"),
+        (By.XPATH, "//button[contains(text(), 'off duty')]"),
+        (By.XPATH, "//button[contains(text(), 'break start')]"),
+        (By.XPATH, "//button[contains(text(), 'break end')]"),
+        # 中文按鈕
         (By.XPATH, "//button[span[text()='上班' or text()='下班']]"),
         (By.XPATH, "//button[contains(text(), '上班')]"),
         (By.XPATH, "//button[contains(text(), '下班')]"),
@@ -216,10 +222,11 @@ try:
     work_button = None
     for selector_type, selector_value in work_button_selectors:
         try:
-            work_button = WebDriverWait(driver, 10).until(
+            work_button = WebDriverWait(driver, 5).until(
                 EC.element_to_be_clickable((selector_type, selector_value))
             )
             print(f"找到上班/下班按鈕，使用選擇器: {selector_value}")
+            print(f"按鈕文字: '{work_button.text}'")
             break
         except TimeoutException:
             continue
