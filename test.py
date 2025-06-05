@@ -46,7 +46,7 @@ try:
     print(f"Attendance 頁面 URL: {driver.current_url}")
     
     punch_button = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.CSS_SELECTOR, '[data-reactid=".0.0.1.3.0.1.1.1.0.1.2"]'))
+        EC.element_to_be_clickable((By.CSS_SELECTOR, "button.ta-link-btn:nth-of-type(2)"))
     )
     punch_button.click()
     print("已點擊打卡按鈕")
