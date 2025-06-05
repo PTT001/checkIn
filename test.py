@@ -40,6 +40,10 @@ try:
     punch_button = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.CSS_SELECTOR, "div.ta-link-btn:nth-of-type(1)"))
     )
+
+    punch_button_text = punch_button.text.strip() if punch_button.text.strip() else "無可見文字"
+    print(punch_button_text)
+    
     punch_button.click()
     print("已點擊打卡按鈕")
     
