@@ -38,18 +38,15 @@ try:
     print("已點擊 Attendance 連結")
     
     punch_button = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.CSS_SELECTOR, "div.ta-link-btn:nth-of-type(1)"))
+        EC.element_to_be_clickable((By.LINK_TEXT, "Check in/out"))
     )
-
-    punch_button_text = punch_button.text.strip() if punch_button.text.strip() else "無可見文字"
-    print(punch_button_text)
     
     punch_button.click()
     print("已點擊打卡按鈕")
     
     # 抓取第一個 class 包含 ta_btn 的 button
     button = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.CSS_SELECTOR, "button[style='width:200px;']:nth-of-type(1)"))
+        EC.element_to_be_clickable((By.XPATH, "//button[contains(., 'on duty') or contains(., 'off duty')]"))
     )
     if button.is_enabled():
         button.click()
