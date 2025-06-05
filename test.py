@@ -51,9 +51,20 @@ try:
     punch_button.click()
     print("已點擊打卡按鈕")
     
-    element = WebDriverWait(driver, 15).until(
-        EC.element_to_be_clickable((By.XPATH, "//button[span[text()='上班' or text()='下班']]"))
+   try:
+    # 抓取第一個 class 包含 ta_btn 的 button
+    button = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.CSS_SELECTOR, "button.ta_btn:nth-of-type(1)"))
     )
-    element.click()
+    if button.is_enabled():
+        button.click()
+        print("第一個按鈕已點擊")
+    else:
+        print("第一個按鈕處於禁用狀態，無法點擊")
+        
+except Exception as e:
+    print(f"發生錯誤：{e}")
+
+
 finally:
     driver.quit() 
