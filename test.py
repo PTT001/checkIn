@@ -168,5 +168,3 @@ finally:
     driver.quit()
     print("瀏覽器已關閉")
 
-finally:
-    driver.quit()
