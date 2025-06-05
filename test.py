@@ -38,7 +38,7 @@ try:
     print("已點擊 Attendance 連結")
     
     punch_button = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.CSS_SELECTOR, "button.ta-link-btn:nth-of-type(2)"))
+        EC.element_to_be_clickable((By.CSS_SELECTOR, "a.ta-link-btn:nth-of-type(2)"))
     )
     punch_button.click()
     print("已點擊打卡按鈕")
