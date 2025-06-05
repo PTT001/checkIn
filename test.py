@@ -20,6 +20,16 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), opti
 # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 try:
     driver.get("https://auth.mayohr.com/HRM/Account/Login")
+
+    # 檢查頁面語言
+    html_lang = driver.find_element(By.TAG_NAME, "html").get_attribute("lang")
+    print(f"頁面語言屬性: {html_lang}")
+    
+    # 檢查頁面內容
+    body_text = driver.find_element(By.TAG_NAME, "body").text
+    print(f"頁面文字內容: {body_text[:200]}...")
+
+    
     username = WebDriverWait(driver, 15).until(
         EC.presence_of_element_located((By.NAME, "userName"))
     )
