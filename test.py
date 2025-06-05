@@ -8,12 +8,12 @@ import os
 import time
 USERNAME = os.environ.get("USERNAME")
 PASSWORD = os.environ.get("PASSWORD")
+
 # 初始化 Chrome 瀏覽器，設置 headless 模式以適應 GitHub Actions
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')  # 無頭模式
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
-options.add_argument('--lang=zh-TW')
 
 # 初始化瀏覽器
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
@@ -45,7 +45,7 @@ try:
     
     # 抓取第一個 class 包含 ta_btn 的 button
     button = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.CSS_SELECTOR, "button.btn:nth-of-type(1)"))
+        EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-reactid='.0.0.1.3.0.1.1.1.5.0.1.0.1.0.2']"))
     )
     if button.is_enabled():
         button.click()
