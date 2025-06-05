@@ -46,6 +46,8 @@ try:
         EC.element_to_be_clickable((By.XPATH, "//span[text()='我要打卡']"))
     )
     punch_card_element.click()
+    print("已點擊打卡按鈕")
+    
     element = WebDriverWait(driver, 15).until(
         EC.element_to_be_clickable((By.XPATH, "//button[span[text()='上班' or text()='下班']]"))
     )
