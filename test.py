@@ -13,6 +13,8 @@ options = webdriver.ChromeOptions()
 options.add_argument('--headless')  # 無頭模式
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
+options.add_argument('--lang=zh-TW')
+
 # 初始化瀏覽器
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
