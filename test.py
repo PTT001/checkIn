@@ -45,7 +45,7 @@ try:
     
     # 抓取第一個 class 包含 ta_btn 的 button
     button = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.CSS_SELECTOR, "button.ta_btn:nth-of-type(1)"))
+        EC.element_to_be_clickable((By.CSS_SELECTOR, "button.btn:nth-of-type(1)"))
     )
     if button.is_enabled():
         button.click()
