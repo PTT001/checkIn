@@ -31,15 +31,15 @@ try:
     )
     print("登入成功，當前頁面: {driver.current_url}")
     
-    attendance_link = WebDriverWait(driver, 10).until(
+    attendance_link = WebDriverWait(driver, 15).until(
         EC.element_to_be_clickable((By.LINK_TEXT, "Attendance"))
     )
     attendance_link.click()
-    punch_card_element = WebDriverWait(driver, 10).until(
+    punch_card_element = WebDriverWait(driver, 15).until(
         EC.element_to_be_clickable((By.XPATH, "//span[text()='我要打卡']"))
     )
     punch_card_element.click()
-    element = WebDriverWait(driver, 10).until(
+    element = WebDriverWait(driver, 15).until(
         EC.element_to_be_clickable((By.XPATH, "//button[span[text()='上班' or text()='下班']]"))
     )
     element.click()
