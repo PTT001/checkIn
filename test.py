@@ -35,7 +35,14 @@ try:
         EC.element_to_be_clickable((By.LINK_TEXT, "Attendance"))
     )
     attendance_link.click()
-    punch_card_element = WebDriverWait(driver, 15).until(
+
+    print("已點擊 Attendance 連結")
+    
+    # 5. 等待頁面載入
+    time.sleep(3)
+    print(f"Attendance 頁面 URL: {driver.current_url}")
+    
+    punch_card_element = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, "//span[text()='我要打卡']"))
     )
     punch_card_element.click()
