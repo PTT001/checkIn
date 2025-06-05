@@ -21,15 +21,6 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), opti
 try:
     driver.get("https://auth.mayohr.com/HRM/Account/Login")
 
-    # 檢查頁面語言
-    html_lang = driver.find_element(By.TAG_NAME, "html").get_attribute("lang")
-    print(f"頁面語言屬性: {html_lang}")
-    
-    # 檢查頁面內容
-    body_text = driver.find_element(By.TAG_NAME, "body").text
-    print(f"頁面文字內容: {body_text[:200]}...")
-
-    
     username = WebDriverWait(driver, 15).until(
         EC.presence_of_element_located((By.NAME, "userName"))
     )
@@ -54,10 +45,10 @@ try:
     time.sleep(3)
     print(f"Attendance 頁面 URL: {driver.current_url}")
     
-    punch_card_element = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.XPATH, "//span[text()='我要打卡']"))
+    punch_button = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.CSS_SELECTOR, '[data-reactid=".0.0.1.3.0.1.1.1.0.1.2"]'))
     )
-    punch_card_element.click()
+    punch_button.click()
     print("已點擊打卡按鈕")
     
     element = WebDriverWait(driver, 15).until(
