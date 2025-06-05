@@ -54,7 +54,7 @@ try:
         print("第一個按鈕處於禁用狀態，無法點擊")
         
 except Exception as e:
-    print("發生錯誤：{e}")
+    print(f"發生錯誤：{e}")
 
 
 finally:
