@@ -49,7 +49,7 @@ try:
         EC.element_to_be_clickable((By.XPATH, "//button[contains(., 'on duty') or contains(., 'clock out')]"))
     )
     if button.is_enabled():
-        # button.click()
+        button.click()
         print("第一個按鈕已點擊")
     else:
         print("第一個按鈕處於禁用狀態，無法點擊")
