@@ -41,8 +41,6 @@ try:
         EC.element_to_be_clickable((By.XPATH, "//span[text()='Check in/out']/ancestor::div[@class='ta-link-btn']"))
     )
 
-    printf(punch_button)
-    
     punch_button.click()
     print("已點擊打卡按鈕")
     
