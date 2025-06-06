@@ -30,6 +30,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Random delay for morning run
+      if: github.event.schedule == '30 1 * * *'  # Only for 9:30 AM UTC+8
+      run: sleep $((RANDOM % 601))  # Sleep for 0–600 seconds (0–10 minutes)    
+
     - name: Run Selenium script
       env:
         USERNAME: ${{ secrets.USERNAME }}
