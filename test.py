@@ -38,7 +38,7 @@ try:
     print("已點擊 Attendance 連結")
     
     punch_button = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.LINK_TEXT, "Check in/out"))
+        EC.element_to_be_clickable((By.XPATH, "//span[text()='Check in/out']/ancestor::div[@class='ta-link-btn']"))
     )
 
     printf(punch_button)
