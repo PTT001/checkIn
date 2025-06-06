@@ -40,6 +40,8 @@ try:
     punch_button = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.LINK_TEXT, "Check in/out"))
     )
+
+    printf(punch_button)
     
     punch_button.click()
     print("已點擊打卡按鈕")
