@@ -46,7 +46,7 @@ try:
     
     # 抓取第一個 class 包含 ta_btn 的 button
     button = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, "//button[contains(., 'on duty') or contains(., 'off duty')]"))
+        EC.element_to_be_clickable((By.XPATH, "//button[contains(., 'on duty') or contains(., 'clock out')]"))
     )
     if button.is_enabled():
         button.click()
